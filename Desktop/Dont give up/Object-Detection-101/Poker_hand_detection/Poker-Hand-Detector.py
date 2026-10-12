@@ -7,12 +7,10 @@ from ultralytics import YOLO
 
 import PokerHandFunction
 
-# ---------------- Settings you can tweak ----------------
-CONF_THRESHOLD = 0.5      # min confidence for a card box
-IMG_SIZE = 960            # bigger = better on small corner labels (use 640 if slow)
-HISTORY = 15              # number of recent frames used for smoothing
-MIN_VOTES = 8             # a card must appear in this many of the last frames
-# --------------------------------------------------------
+CONF_THRESHOLD = 0.5     
+IMG_SIZE = 960           
+HISTORY = 15              
+MIN_VOTES = 8             
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "playingCards.pt")
@@ -39,7 +37,7 @@ cap.set(3, 1280)
 cap.set(4, 720)
 
 model = YOLO(MODEL_PATH)
-classNames = model.names  # use the names stored in the model itself
+classNames = model.names  
 
 
 def draw_banner(img, text, sub_text, ok):
